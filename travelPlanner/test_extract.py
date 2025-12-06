@@ -42,5 +42,5 @@ def test_extract(image_url: str):
 
 
 if __name__ == "__main__":
-    TEST_IMAGE_URL = "https://cdn.pixabay.com/photo/2018/08/15/06/58/hawa-mahal-3601901_960_720.jpg"
+    TEST_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg"
     test_extract(TEST_IMAGE_URL)

@@ -1,7 +1,7 @@
-from typing import List, Any, Dict
+from typing import List
 from pydantic import BaseModel
 from fastapi import HTTPException
-from azure_client import call_chat_agent
+from travelPlanner.azure_client import call_chat_agent
 from main import app
 
 class Memory(BaseModel):

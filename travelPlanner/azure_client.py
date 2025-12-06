@@ -1,14 +1,17 @@
 import os
 import json
 from typing import Any, Dict, List
+from dotenv import load_dotenv
 
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
+load_dotenv()
+
 # ENV VARS (set these in .env or your environment)
 AZURE_AI_PROJECT_ENDPOINT = os.getenv("AZURE_EXISTING_AIPROJECT_ENDPOINT")
-AZURE_AI_EXTRACT_AGENT_NAME = os.getenv("AZURE_EXTRACT_AGENT_ID", "travel-extract-agent:3")
-AZURE_AI_CHAT_AGENT_NAME = os.getenv("AZURE_CHAT_AGENT_ID", "travel-chat-agent:2")
+AZURE_AI_EXTRACT_AGENT_NAME = "travel-extract-agent"
+AZURE_AI_CHAT_AGENT_NAME = "travel-chat-agent"
 
 if not AZURE_AI_PROJECT_ENDPOINT:
     raise RuntimeError("AZURE_EXISTING_AIPROJECT_ENDPOINT is not set")

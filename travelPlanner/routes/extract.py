@@ -1,9 +1,7 @@
-# main.py (or routes/extract.py if you split routes)
-from fastapi import FastAPI, HTTPException
+from fastapi import HTTPException
 from pydantic import BaseModel, HttpUrl
-from azure_client import call_extract_agent
-
-app = FastAPI()
+from travelPlanner.azure_client import call_extract_agent
+from main import app
 
 
 class ExtractRequest(BaseModel):
