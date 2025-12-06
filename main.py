@@ -1,5 +1,4 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 app=FastAPI(title="My First FASTAPI")
@@ -16,7 +15,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from travelPlanner.routes import extract, chat_agent  # noqa: F401
+
 
 @app.get("/hello/{name}")
 def say_hello(name:str):
     return { "greeting":f"Hello {name}" }
+
+@app.post("/api/bills/upload")
+def upload_bills(file:UploadFile=File(...)):
+    print(file)
+    return {
+        "success": True,
+        "filename": file.filename,
+        "content_type": file.content_type
+    }
